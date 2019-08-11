@@ -1,5 +1,14 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Todo:
+- Drag and drop blocks of activities (estimated size/time to complete) that can be put on interactive schedule and exported to other calendar software
+
+- API Microservices
+  - To find nearby food places (based on rating and filtering types of food/activities)
+  - Sizing of activities based on user reviews and popularity
+  - Suggest nearby high rating activites based on your geolocation
+  - Maps go display route/plan
+
 ## Available Scripts
 
 In the project directory, you can run:
