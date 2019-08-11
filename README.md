@@ -7,7 +7,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
   - To find nearby food places (based on rating and filtering types of food/activities)
   - Sizing of activities based on user reviews and popularity
   - Suggest nearby high rating activites based on your geolocation
-  - Maps go display route/plan
+  - ETA service to estimate out travel time and the route to take
 
 ## Available Scripts
 
