@@ -3,7 +3,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ## Todo:
 - Drag and drop blocks of activities (estimated size/time to complete) that can be put on interactive schedule and exported to other calendar software
 
-- API Microservices
+- Microservices (Java)
   - To find nearby food places (based on rating and filtering types of food/activities)
   - Sizing of activities based on user reviews and popularity
   - Suggest nearby high rating activites based on your geolocation
