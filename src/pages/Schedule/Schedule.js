@@ -1,7 +1,7 @@
 import React from 'react';
 import '@atlaskit/css-reset';
 import styled from 'styled-components';
-import {DragDropContext, Droppable} from 'react-beautiful-dnd';
+import { DragDropContext, Droppable } from 'react-beautiful-dnd';
 import initialData from '../../data/initialData';
 import Column from '../../components/Column/Column';
 
@@ -14,7 +14,7 @@ class Schedule extends React.Component {
     state = initialData;
 
     onDragEnd = (result) => {
-        const {destination, source, draggableId, type} = result;
+        const { destination, source, draggableId, type } = result;
 
         if (!destination) {
             return;
@@ -24,7 +24,7 @@ class Schedule extends React.Component {
             return;
         }
 
-        if(type === 'column'){
+        if (type === 'column') {
             const newColumnOrder = Array.from(this.state.columnOrder);
             newColumnOrder.splice(source.index, 1);
             newColumnOrder.splice(destination.index, 0, draggableId);
@@ -98,7 +98,7 @@ class Schedule extends React.Component {
                             {this.state.columnOrder.map((columnId, index) => {
                                 const column = this.state.columns[columnId];
                                 const tasks = column.taskIds.map(taskId => this.state.tasks[taskId]);
-                                return <Column key={column.id} column={column} tasks={tasks} index={index}/>;
+                                return <Column key={column.id} column={column} tasks={tasks} index={index} />;
                             })}
                             {provided.placeholder}
                         </Container>

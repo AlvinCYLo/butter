@@ -2,7 +2,7 @@ import React from 'react';
 
 import styled from 'styled-components';
 
-import {Droppable, Draggable} from 'react-beautiful-dnd';
+import { Droppable, Draggable } from 'react-beautiful-dnd';
 
 import Task from '../Task/Task';
 
@@ -22,8 +22,7 @@ const TaskList = styled.div`
 padding: 8px;
 transition: background-color 0.2s ease;
 background-color: ${props => (props.isDraggingOver ? 'lightgrey' : 'inherit')};
-flex-grow: 1;
-min-height: 100px;`;
+flex-grow: 1;`;
 
 export default class Column extends React.Component {
     render() {
@@ -44,7 +43,7 @@ export default class Column extends React.Component {
                                     isDraggingOver={snapshot.isDraggingOver}
                                 >
                                     {this.props.tasks.map((task, index) => <Task key={task.id} task={task}
-                                                                                 index={index}/>)}
+                                        index={index} />)}
                                     {provided.placeholder}
                                 </TaskList>
                             )}
