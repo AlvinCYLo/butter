@@ -22,7 +22,7 @@ export default class Task extends React.Component {
 
     render() {
         return (
-            <Draggable draggableId={this.props.task.id} index={this.props.index}>
+            <Draggable draggableId={this.props.activity.id} index={this.props.index}>
                 {(provided, snapshot) => (
                     <Container
                         ref={provided.innerRef}
@@ -31,7 +31,7 @@ export default class Task extends React.Component {
                         isDragging={snapshot.isDragging}
                     >
                         <Handle />
-                        {this.props.task.content}
+                        {this.props.activity.name}
                     </Container>
                 )}
             </Draggable>

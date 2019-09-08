@@ -4,8 +4,10 @@
   "private": true,
   "dependencies": {
     "@atlaskit/css-reset": "^5.0.5",
-    "@atlaskit/theme": "^9.1.2",
-    "@emotion/styled": "^10.0.15",
+    "@atlaskit/theme": "^9.2.1",
+    "@emotion/core": "^10.0.17",
+    "@emotion/styled": "^10.0.17",
+    "eslint-config-airbnb": "^18.0.1",
     "react": "^16.9.0",
     "react-beautiful-dnd": "^11.0.5",
     "react-dom": "^16.9.0",

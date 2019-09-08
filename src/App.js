@@ -1,5 +1,4 @@
 import React from 'react';
-import {Route, Router, Switch} from 'react-router-dom';
 import Schedule from './pages/Schedule/Schedule';
 
 class App extends React.Component {

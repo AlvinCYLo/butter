@@ -1,28 +1,41 @@
+import { colors } from '@atlaskit/theme';
+
 const initialData = {
-  tasks: {
-    'task-1': {id: 'task-1', content: 'Take out the garbage'},
-    'task-2': {id: 'task-2', content: 'Take out the garbage2'},
-    'task-3': {id: 'task-3', content: 'Take out the garbage3'},
-    'task-4': {id: 'task-4', content: 'Take out the garbage4'},
+  activities: {
+    'Playland': {
+      id: 'Playland',
+      name: 'Playland',
+      time: 5,
+      type: 'Play',
+      typeColor: {
+        soft: colors.Y50,
+        hard: colors.Y200
+        }
+    },
+      'Ramen': {
+          id: 'Ramen',
+          name: 'Ramen',
+          time: 2,
+          type: 'Eat',
+          typeColor: {
+              soft: colors.B50,
+              hard: colors.B200
+          }
+      },
   },
   columns: {
     'column-1': {
-      id: 'column-1',
-      title: 'To-do1',
-      taskIds: ['task-1']
+      id: 'activitiesList',
+      title: 'activitiesList',
+      activitiesIds: ['Playland']
     },
     'column-2': {
-      id: 'column-2',
-      title: 'To-do2',
-      taskIds: ['task-2']
+      id: 'schedule',
+      title: 'schedule',
+      activitiesIds: ['Ramen']
     },
-    'column-3': {
-      id: 'column-3',
-      title: 'To-do3',
-      taskIds: ['task-3']
-    }
   },
-  columnOrder: ['column-1', 'column-2', 'column-3'],
+  columnOrder: ['column-1', 'column-2'],
 };
 
 export default initialData;
