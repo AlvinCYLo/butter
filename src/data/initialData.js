@@ -29,12 +29,12 @@ const initialData = {
     'activitiesList': {
       id: 'activitiesList',
       title: 'activitiesList',
-      activitiesIds: ['Playland']
+      activitiesIds: ['Playland', 'Ramen']
     },
     'schedule': {
       id: 'schedule',
       title: 'schedule',
-      activitiesIds: ['Ramen']
+      activitiesIds: []
     },
   },
   columnOrder: ['activitiesList', 'schedule'],

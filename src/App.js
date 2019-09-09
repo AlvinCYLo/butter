@@ -1,17 +1,14 @@
 import React from 'react';
-import Schedule from './pages/Schedule/Schedule';
+import Planner from './pages/Planner/Planner';
 
 class App extends React.Component {
   render(){
     return (
-      <Schedule/>
-      // <Router>
-      //   <Switch>
-      //     <Route exact path="/" component={}/>
-      //     <Route exact path="/schedule" component={}/>
-      //     <Route exact path="/map" component={}/>
-      //   </Switch>
-      // </Router>
+      <Planner style={{
+          overflowY: 'scroll',
+          maxHeight: '120vh',
+          position: 'relative',
+      }}/>
     );
   }
 }

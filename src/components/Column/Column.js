@@ -10,7 +10,7 @@ const Container = styled.div`
 margin: 8px;
 border: 1px solid lightgrey;
 border-radius: 2px;
-background-color: white;
+background-color: lightgrey;
 width: 220px;
 display: flex;
 flex-direction: column;`;
@@ -18,7 +18,7 @@ flex-direction: column;`;
 const Title = styled.h3`
 padding: 8px;`;
 
-const TaskList = styled.div`
+const ActivityList = styled.div`
 padding: 8px;
 transition: background-color 0.2s ease;
 background-color: ${props => (props.isDraggingOver ? 'lightgrey' : 'inherit')};
@@ -37,7 +37,8 @@ export default class Column extends React.Component {
                         </Title>
                         <Droppable droppableId={this.props.column.id} type="task">
                             {(provided, snapshot) => (
-                                <TaskList
+                                <ActivityList
+                                    style={this.props.style}
                                     ref={provided.innerRef}
                                     {...provided.droppableProps}
                                     isDraggingOver={snapshot.isDraggingOver}
@@ -45,7 +46,7 @@ export default class Column extends React.Component {
                                     {this.props.activities.map((activity, index) => <Activity key={activity.id} activity={activity}
                                         index={index} />)}
                                     {provided.placeholder}
-                                </TaskList>
+                                </ActivityList>
                             )}
                         </Droppable>
                     </Container>

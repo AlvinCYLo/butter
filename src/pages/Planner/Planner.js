@@ -1,6 +1,6 @@
 import React from 'react';
 import '@atlaskit/css-reset';
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 import { DragDropContext, Droppable } from 'react-beautiful-dnd';
 import initialData from '../../data/initialData';
 import Column from '../../components/Column/Column';
@@ -9,7 +9,7 @@ const Container = styled.div`
 display: flex;
 `;
 
-class Schedule extends React.Component {
+class Planner extends React.Component {
 
     state = initialData;
 
@@ -92,7 +92,6 @@ class Schedule extends React.Component {
         return;
     };
 
-
     render() {
         return (
             <DragDropContext onDragEnd={this.onDragEnd}>
@@ -104,7 +103,12 @@ class Schedule extends React.Component {
                             {this.state.columnOrder.map((columnId, index) => {
                                 const column = this.state.columns[columnId];
                                 const activities = column.activitiesIds.map(activitiesId => this.state.activities[activitiesId]);
-                                return <Column key={column.id} column={column} activities={activities} index={index} />;
+                                return <Column
+                                    style={this.props.style}
+                                    key={column.id}
+                                    column={column}
+                                    activities={activities}
+                                    index={index} />;
                             })}
                             {provided.placeholder}
                         </Container>
@@ -115,4 +119,4 @@ class Schedule extends React.Component {
     }
 }
 
-export default Schedule;
+export default Planner;
