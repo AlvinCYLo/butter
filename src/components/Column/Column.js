@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 import { Droppable, Draggable } from 'react-beautiful-dnd';
 
-import Task from '../Task/Task';
+import Activity from '../Activity/Activity';
 
 const Container = styled.div`
 margin: 8px;
@@ -42,7 +42,7 @@ export default class Column extends React.Component {
                                     {...provided.droppableProps}
                                     isDraggingOver={snapshot.isDraggingOver}
                                 >
-                                    {this.props.activities.map((activity, index) => <Task key={activity.id} activity={activity}
+                                    {this.props.activities.map((activity, index) => <Activity key={activity.id} activity={activity}
                                         index={index} />)}
                                     {provided.placeholder}
                                 </TaskList>

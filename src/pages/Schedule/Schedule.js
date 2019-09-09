@@ -41,13 +41,13 @@ class Schedule extends React.Component {
         const finish = this.state.columns[destination.droppableId];
 
         if (start === finish) {
-            const newTaskIds = Array.from(start.taskIds);
-            newTaskIds.splice(source.index, 1);
-            newTaskIds.splice(destination.index, 0, draggableId);
+            const newActivityIds = Array.from(start.activitiesIds);
+            newActivityIds.splice(source.index, 1);
+            newActivityIds.splice(destination.index, 0, draggableId);
 
             const newColumn = {
                 ...start,
-                taskIds: newTaskIds,
+                activitiesIds: newActivityIds,
             };
 
             const newState = {
@@ -61,17 +61,23 @@ class Schedule extends React.Component {
             this.setState(newState);
             return;
         }
-        const startTaskIds = Array.from(start.taskIds);
-        startTaskIds.splice(source.index, 1);
+
+        const startActivityIds = Array.from(start.activitiesIds);
+
+        startActivityIds.splice(source.index, 1);
+
         const newStart = {
             ...start,
-            taskIds: startTaskIds,
+            activitiesIds: startActivityIds,
         };
-        const finishTaskIds = Array.from(finish.taskIds);
-        finishTaskIds.splice(destination.index, 0, draggableId);
+
+        const finishActivityIds = Array.from(finish.activitiesIds);
+
+        finishActivityIds.splice(destination.index, 0, draggableId);
+
         const newFinish = {
             ...finish,
-            taskIds: finishTaskIds,
+            activitiesIds: finishActivityIds,
         };
 
         const newState = {

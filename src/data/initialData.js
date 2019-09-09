@@ -7,6 +7,7 @@ const initialData = {
       name: 'Playland',
       time: 5,
       type: 'Play',
+      image: './playland.jpg',
       typeColor: {
         soft: colors.Y50,
         hard: colors.Y200
@@ -17,6 +18,7 @@ const initialData = {
           name: 'Ramen',
           time: 2,
           type: 'Eat',
+          image: './playland.jpg',
           typeColor: {
               soft: colors.B50,
               hard: colors.B200
@@ -24,18 +26,18 @@ const initialData = {
       },
   },
   columns: {
-    'column-1': {
+    'activitiesList': {
       id: 'activitiesList',
       title: 'activitiesList',
       activitiesIds: ['Playland']
     },
-    'column-2': {
+    'schedule': {
       id: 'schedule',
       title: 'schedule',
       activitiesIds: ['Ramen']
     },
   },
-  columnOrder: ['column-1', 'column-2'],
+  columnOrder: ['activitiesList', 'schedule'],
 };
 
 export default initialData;
