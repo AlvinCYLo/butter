@@ -8,6 +8,7 @@ const initialData = {
       time: 5,
       type: 'Play',
       image: './playland.jpg',
+      url: 'https://google.com',
       typeColor: {
         soft: colors.Y50,
         hard: colors.Y200
@@ -19,6 +20,7 @@ const initialData = {
           time: 2,
           type: 'Eat',
           image: './playland.jpg',
+          url: 'https://google.com',
           typeColor: {
               soft: colors.B50,
               hard: colors.B200

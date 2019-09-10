@@ -108,6 +108,7 @@ export default class Activity extends React.Component {
             <Draggable draggableId={this.props.activity.id} index={this.props.index}>
                 {(provided, snapshot) => (
                     <Container
+                        href={this.props.activity.url}
                         ref={provided.innerRef}
                         {...provided.draggableProps}
                         {...provided.dragHandleProps}
