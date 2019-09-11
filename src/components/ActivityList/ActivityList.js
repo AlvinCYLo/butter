@@ -1,7 +1,7 @@
 import React from 'react';
 
 import styled from 'styled-components';
-
+import { colors } from '@atlaskit/theme';
 import { Droppable, Draggable } from 'react-beautiful-dnd';
 
 import Activity from '../Activity/Activity';
@@ -18,13 +18,13 @@ flex-direction: column;`;
 const Title = styled.h3`
 padding: 8px;`;
 
-const ActivityList = styled.div`
+const List = styled.div`
 padding: 8px;
 transition: background-color 0.2s ease;
-background-color: ${props => (props.isDraggingOver ? 'lightgrey' : 'inherit')};
+background-color: ${props => (props.isDraggingOver ? `${colors.B50}` : 'inherit')};
 flex-grow: 1;`;
 
-export default class Column extends React.Component {
+export default class ActivityList extends React.Component {
     render() {
         return (
             <Draggable draggableId={this.props.column.id} index={this.props.index}>
@@ -37,7 +37,7 @@ export default class Column extends React.Component {
                         </Title>
                         <Droppable droppableId={this.props.column.id} type="task">
                             {(provided, snapshot) => (
-                                <ActivityList
+                                <List
                                     style={this.props.style}
                                     ref={provided.innerRef}
                                     {...provided.droppableProps}
@@ -46,7 +46,7 @@ export default class Column extends React.Component {
                                     {this.props.activities.map((activity, index) => <Activity key={activity.id} activity={activity}
                                         index={index} />)}
                                     {provided.placeholder}
-                                </ActivityList>
+                                </List>
                             )}
                         </Droppable>
                     </Container>

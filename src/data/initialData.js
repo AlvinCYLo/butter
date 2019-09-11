@@ -1,7 +1,7 @@
 import { colors } from '@atlaskit/theme';
-
+// onclick on tab should zoom to locatio on map
 const initialData = {
-  activities: {
+  availableActivities: {
     'Playland': {
       id: 'Playland',
       name: 'Playland',
@@ -26,20 +26,32 @@ const initialData = {
               hard: colors.B200
           }
       },
+      'Volleyball': {
+          id: 'Volleyball',
+          name: 'Volleyball',
+          time: 3,
+          type: 'Play',
+          image: './playland.jpg',
+          url: 'https://google.com',
+          typeColor: {
+              soft: colors.Y50,
+              hard: colors.Y200
+          }
+      },
   },
-  columns: {
-    'activitiesList': {
-      id: 'activitiesList',
-      title: 'activitiesList',
-      activitiesIds: ['Playland', 'Ramen']
+  Planner: {
+    'ActivityList': {
+      id: 'ActivityList',
+      title: 'ActivityList',
+      activityIds: ['Playland', 'Ramen', 'Volleyball']
     },
-    'schedule': {
-      id: 'schedule',
-      title: 'schedule',
-      activitiesIds: []
+    'Agenda': {
+      id: 'Agenda',
+      title: 'Agenda',
+      activityIds: []
     },
   },
-  columnOrder: ['activitiesList', 'schedule'],
+  columnOrder: ['ActivityList', 'Agenda'],
 };
 
 export default initialData;
