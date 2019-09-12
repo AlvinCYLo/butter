@@ -1,15 +1,15 @@
 import React from 'react';
 import '@atlaskit/css-reset';
-import styled from '@emotion/styled';
+import styled from 'styled-components';
 import { DragDropContext, Droppable } from 'react-beautiful-dnd';
 import initialData from '../../data/initialData';
-import ActivityList from '../../components/ActivityList/ActivityList';
+import List from '../../components/List/List';
 
 const Container = styled.div`
 display: flex;
 `;
 
-class Planner extends React.Component {
+class Schedule extends React.Component {
 
     state = initialData;
 
@@ -24,7 +24,7 @@ class Planner extends React.Component {
             return;
         }
 
-        if (type === 'column') {
+        if (type === 'component') {
             const newColumnOrder = Array.from(this.state.columnOrder);
             newColumnOrder.splice(source.index, 1);
             newColumnOrder.splice(destination.index, 0, draggableId);
@@ -37,23 +37,23 @@ class Planner extends React.Component {
             return;
         }
 
-        const start = this.state.Planner[source.droppableId];
-        const finish = this.state.Planner[destination.droppableId];
+        const start = this.state.columns[source.droppableId];
+        const finish = this.state.columns[destination.droppableId];
 
         if (start === finish) {
-            const newActivityIds = Array.from(start.activityIds);
+            const newActivityIds = Array.from(start.activitiesIds);
             newActivityIds.splice(source.index, 1);
             newActivityIds.splice(destination.index, 0, draggableId);
 
             const newColumn = {
                 ...start,
-                activityIds: newActivityIds,
+                activitiesIds: newActivityIds,
             };
 
             const newState = {
                 ...this.state,
-                Planner: {
-                    ...this.state.Planner,
+                columns: {
+                    ...this.state.columns,
                     [newColumn.id]: newColumn,
                 }
             };
@@ -62,28 +62,28 @@ class Planner extends React.Component {
             return;
         }
 
-        const startActivityIds = Array.from(start.activityIds);
+        const startActivityIds = Array.from(start.activitiesIds);
 
         startActivityIds.splice(source.index, 1);
 
         const newStart = {
             ...start,
-            activityIds: startActivityIds,
+            activitiesIds: startActivityIds,
         };
 
-        const finishActivityIds = Array.from(finish.activityIds);
+        const finishActivityIds = Array.from(finish.activitiesIds);
 
         finishActivityIds.splice(destination.index, 0, draggableId);
 
         const newFinish = {
             ...finish,
-            activityIds: finishActivityIds,
+            activitiesIds: finishActivityIds,
         };
 
         const newState = {
             ...this.state,
-            Planner: {
-                ...this.state.Planner,
+            columns: {
+                ...this.state.columns,
                 [newStart.id]: newStart,
                 [newFinish.id]: newFinish,
             }
@@ -92,23 +92,19 @@ class Planner extends React.Component {
         return;
     };
 
+
     render() {
         return (
             <DragDropContext onDragEnd={this.onDragEnd}>
-                <Droppable droppableId="all-columns" direction="horizontal" type="column">
+                <Droppable droppableId="components" direction="horizontal" type="component">
                     {(provided) => (
                         <Container
                             {...provided.droppableProps}
                             ref={provided.innerRef}>
                             {this.state.columnOrder.map((columnId, index) => {
-                                const column = this.state.Planner[columnId];
-                                const activities = column.activityIds.map(activitiesId => this.state.availableActivities[activitiesId]);
-                                return <ActivityList
-                                    style={this.props.style}
-                                    key={column.id}
-                                    column={column}
-                                    activities={activities}
-                                    index={index} />;
+                                const column = this.state.columns[columnId];
+                                const activities = column.activitiesIds.map(activitiesId => this.state.activities[activitiesId]);
+                                return <List key={column.id} column={column} activities={activities} index={index} />;
                             })}
                             {provided.placeholder}
                         </Container>
@@ -119,4 +115,4 @@ class Planner extends React.Component {
     }
 }
 
-export default Planner;
+export default Schedule;

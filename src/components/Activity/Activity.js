@@ -18,7 +18,6 @@ const Container = styled.a`
   margin-bottom: ${grid}px;
   user-select: none;
 
-  /* anchor overrides */
   color: ${colors.N900};
 
   &:hover,
@@ -72,16 +71,10 @@ const Avatar = styled.img`
 `;
 
 const Content = styled.div`
-  /* flex child */
   flex-grow: 1;
 
-  /*
-    Needed to wrap text in ie11
-    https://stackoverflow.com/questions/35111090/why-ie11-doesnt-wrap-the-text-in-flexbox
-  */
   flex-basis: 100%;
 
-  /* flex parent */
   display: flex;
   flex-direction: column;
 `;
