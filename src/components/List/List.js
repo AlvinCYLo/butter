@@ -35,7 +35,7 @@ export default class List extends React.Component {
                         <Title {...provided.dragHandleProps}>
                             {this.props.column.title}
                         </Title>
-                        <Droppable droppableId={this.props.column.id} type="task">
+                        <Droppable droppableId={this.props.column.id} type="activity">
                             {(provided, snapshot) => (
                                 <TaskList
                                     ref={provided.innerRef}
