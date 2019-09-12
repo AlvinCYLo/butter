@@ -2,6 +2,7 @@ import React from 'react';
 import '@atlaskit/css-reset';
 import styled from 'styled-components';
 import { DragDropContext, Droppable } from 'react-beautiful-dnd';
+
 import initialData from '../../data/initialData';
 import List from '../../components/List/List';
 
@@ -25,13 +26,13 @@ class Schedule extends React.Component {
         }
 
         if (type === 'component') {
-            const newColumnOrder = Array.from(this.state.columnOrder);
-            newColumnOrder.splice(source.index, 1);
-            newColumnOrder.splice(destination.index, 0, draggableId);
+            const newLayout = Array.from(this.state.layout);
+            newLayout.splice(source.index, 1);
+            newLayout.splice(destination.index, 0, draggableId);
 
             const newState = {
                 ...this.state,
-                columnOrder: newColumnOrder,
+                layout: newLayout,
             };
             this.setState(newState);
             return;
@@ -45,7 +46,7 @@ class Schedule extends React.Component {
             newActivityIds.splice(source.index, 1);
             newActivityIds.splice(destination.index, 0, draggableId);
 
-            const newColumn = {
+            const newComponent = {
                 ...start,
                 activityIds: newActivityIds,
             };
@@ -54,7 +55,7 @@ class Schedule extends React.Component {
                 ...this.state,
                 components: {
                     ...this.state.components,
-                    [newColumn.id]: newColumn,
+                    [newComponent.id]: newComponent,
                 }
             };
 
@@ -101,7 +102,7 @@ class Schedule extends React.Component {
                         <Container
                             {...provided.droppableProps}
                             ref={provided.innerRef}>
-                            {this.state.columnOrder.map((columnId, index) => {
+                            {this.state.layout.map((columnId, index) => {
                                 const column = this.state.components[columnId];
                                 const activities = column.activityIds.map(activityId => this.state.availableActivities[activityId]);
                                 return <List key={column.id} column={column} activities={activities} index={index} />;

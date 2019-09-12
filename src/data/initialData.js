@@ -52,7 +52,7 @@ const initialData = {
       activityIds: ['Ramen']
     },
   },
-  columnOrder: ['activitiesList', 'schedule'],
+  layout: ['activitiesList', 'schedule'],
 };
 
 export default initialData;
