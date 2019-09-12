@@ -1,7 +1,6 @@
 import React from 'react';
 
 import styled from 'styled-components';
-
 import { Droppable, Draggable } from 'react-beautiful-dnd';
 
 import Activity from '../Activity/Activity';
@@ -11,7 +10,7 @@ margin: 8px;
 border: 1px solid lightgrey;
 border-radius: 2px;
 background-color: white;
-width: 220px;
+width: 300px;
 display: flex;
 flex-direction: column;`;
 

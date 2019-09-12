@@ -37,23 +37,23 @@ class Schedule extends React.Component {
             return;
         }
 
-        const start = this.state.columns[source.droppableId];
-        const finish = this.state.columns[destination.droppableId];
+        const start = this.state.components[source.droppableId];
+        const finish = this.state.components[destination.droppableId];
 
         if (start === finish) {
-            const newActivityIds = Array.from(start.activitiesIds);
+            const newActivityIds = Array.from(start.activityIds);
             newActivityIds.splice(source.index, 1);
             newActivityIds.splice(destination.index, 0, draggableId);
 
             const newColumn = {
                 ...start,
-                activitiesIds: newActivityIds,
+                activityIds: newActivityIds,
             };
 
             const newState = {
                 ...this.state,
-                columns: {
-                    ...this.state.columns,
+                components: {
+                    ...this.state.components,
                     [newColumn.id]: newColumn,
                 }
             };
@@ -62,28 +62,28 @@ class Schedule extends React.Component {
             return;
         }
 
-        const startActivityIds = Array.from(start.activitiesIds);
+        const startActivityIds = Array.from(start.activityIds);
 
         startActivityIds.splice(source.index, 1);
 
         const newStart = {
             ...start,
-            activitiesIds: startActivityIds,
+            activityIds: startActivityIds,
         };
 
-        const finishActivityIds = Array.from(finish.activitiesIds);
+        const finishActivityIds = Array.from(finish.activityIds);
 
         finishActivityIds.splice(destination.index, 0, draggableId);
 
         const newFinish = {
             ...finish,
-            activitiesIds: finishActivityIds,
+            activityIds: finishActivityIds,
         };
 
         const newState = {
             ...this.state,
-            columns: {
-                ...this.state.columns,
+            components: {
+                ...this.state.components,
                 [newStart.id]: newStart,
                 [newFinish.id]: newFinish,
             }
@@ -102,8 +102,8 @@ class Schedule extends React.Component {
                             {...provided.droppableProps}
                             ref={provided.innerRef}>
                             {this.state.columnOrder.map((columnId, index) => {
-                                const column = this.state.columns[columnId];
-                                const activities = column.activitiesIds.map(activitiesId => this.state.activities[activitiesId]);
+                                const column = this.state.components[columnId];
+                                const activities = column.activityIds.map(activityId => this.state.availableActivities[activityId]);
                                 return <List key={column.id} column={column} activities={activities} index={index} />;
                             })}
                             {provided.placeholder}

@@ -1,13 +1,14 @@
 import { colors } from '@atlaskit/theme';
 
 const initialData = {
-  activities: {
+  availableActivities: {
     'Playland': {
       id: 'Playland',
       name: 'Playland',
       time: 5,
       type: 'Play',
       image: './playland.jpg',
+      address: '2901 E Hastings St, Vancouver, BC',
       typeColor: {
         soft: colors.Y50,
         hard: colors.Y200
@@ -19,6 +20,7 @@ const initialData = {
           time: 2,
           type: 'Eat',
           image: './playland.jpg',
+          address: '558 W Broadway, Vancouver, BC',
           typeColor: {
               soft: colors.B50,
               hard: colors.B200
@@ -31,22 +33,23 @@ const initialData = {
         type: 'Play',
         image: './playland.jpg',
         url: 'https://google.com',
+        address: '1 Athletes Way, Vancouver, BC',
         typeColor: {
             soft: colors.Y50,
             hard: colors.Y200
         }
     },
   },
-  columns: {
+  components: {
     'activitiesList': {
       id: 'activitiesList',
       title: 'activitiesList',
-      activitiesIds: ['Playland', 'Volleyball']
+      activityIds: ['Playland', 'Volleyball']
     },
     'schedule': {
       id: 'schedule',
       title: 'schedule',
-      activitiesIds: ['Ramen']
+      activityIds: ['Ramen']
     },
   },
   columnOrder: ['activitiesList', 'schedule'],

@@ -52,7 +52,7 @@ const Footer = styled.div`
   align-items: center;
 `;
 
-const Author = styled.small`
+const Type = styled.small`
   flex-grow: 0;
   margin: 0;
   background-color: ${props => props.color.soft};
@@ -61,7 +61,7 @@ const Author = styled.small`
   padding: ${grid / 2}px;
 `;
 
-const Avatar = styled.img`
+const Icon = styled.img`
   width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -77,6 +77,15 @@ const Content = styled.div`
 
   display: flex;
   flex-direction: column;
+`;
+
+const Address = styled.small`
+  flex-grow: 1;
+  flex-shrink: 1;
+  margin: 0;
+  font-weight: normal;
+  text-overflow: ellipsis;
+  text-align: right;
 `;
 
 const getBackgroundColor = (isDragging, isGroupedOver, typeColor) => {
@@ -108,15 +117,16 @@ export default class Activity extends React.Component {
                         isDragging={snapshot.isDragging}
                         colors={this.props.activity.typeColor}
                     >
-                        <Avatar src={this.props.activity.image}/>
+                        <Icon src={this.props.activity.image}/>
                         <Content>
                             <BlockQuote>
                                 {this.props.activity.name}
                             </BlockQuote>
                             <Footer>
-                                <Author color={this.props.activity.typeColor}>
+                                <Type color={this.props.activity.typeColor}>
                                     {this.props.activity.type}
-                                </Author>
+                                </Type>
+                                <Address>{this.props.activity.address}</Address>
                             </Footer>
                         </Content>
                     </Container>
