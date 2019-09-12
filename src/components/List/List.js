@@ -26,15 +26,15 @@ flex-grow: 1;`;
 export default class List extends React.Component {
     render() {
         return (
-            <Draggable draggableId={this.props.column.id} index={this.props.index}>
+            <Draggable draggableId={this.props.component.id} index={this.props.index}>
                 {(provided) => (
                     <Container
                         {...provided.draggableProps}
                         ref={provided.innerRef}>
                         <Title {...provided.dragHandleProps}>
-                            {this.props.column.title}
+                            {this.props.component.title}
                         </Title>
-                        <Droppable droppableId={this.props.column.id} type="activity">
+                        <Droppable droppableId={this.props.component.id} type="activity">
                             {(provided, snapshot) => (
                                 <TaskList
                                     ref={provided.innerRef}

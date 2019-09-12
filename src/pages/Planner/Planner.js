@@ -5,6 +5,7 @@ import { DragDropContext, Droppable } from 'react-beautiful-dnd';
 
 import initialData from '../../data/initialData';
 import List from '../../components/List/List';
+import Agenda from '../../components/Agenda/Agenda';
 
 const Container = styled.div`
 display: flex;
@@ -102,10 +103,27 @@ class Schedule extends React.Component {
                         <Container
                             {...provided.droppableProps}
                             ref={provided.innerRef}>
-                            {this.state.layout.map((columnId, index) => {
-                                const column = this.state.components[columnId];
-                                const activities = column.activityIds.map(activityId => this.state.availableActivities[activityId]);
-                                return <List key={column.id} column={column} activities={activities} index={index} />;
+                            {this.state.layout.map((componentId, index) => {
+                                const component = this.state.components[componentId];
+                                const activities = component.activityIds.map(activityId => this.state.availableActivities[activityId]);
+
+                                if(component.type === 'board'){
+                                    return (
+                                        <Agenda
+                                            key={component.id} 
+                                            component={component} 
+                                            activities={activities} 
+                                            index={index} />
+                                    )
+                                }
+
+                                return (
+                                <List 
+                                    key={component.id} 
+                                    component={component} 
+                                    activities={activities} 
+                                    index={index} />
+                                ) 
                             })}
                             {provided.placeholder}
                         </Container>

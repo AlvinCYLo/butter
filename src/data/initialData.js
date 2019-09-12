@@ -44,11 +44,13 @@ const initialData = {
     'activitiesList': {
       id: 'activitiesList',
       title: 'activitiesList',
+      type: 'list',
       activityIds: ['Playland', 'Volleyball']
     },
     'schedule': {
       id: 'schedule',
       title: 'schedule',
+      type: 'board',
       activityIds: ['Ramen']
     },
   },
