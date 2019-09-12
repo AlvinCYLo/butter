@@ -41,20 +41,20 @@ const initialData = {
     },
   },
   components: {
-    'activitiesList': {
-      id: 'activitiesList',
-      title: 'activitiesList',
+    'Activities': {
+      id: 'Activities',
+      title: 'Activities',
       type: 'list',
       activityIds: ['Playland', 'Volleyball']
     },
-    'schedule': {
-      id: 'schedule',
-      title: 'schedule',
+    'Planner': {
+      id: 'Planner',
+      title: 'Planner',
       type: 'board',
       activityIds: ['Ramen']
     },
   },
-  layout: ['activitiesList', 'schedule'],
+  layout: ['Activities', 'Planner'],
 };
 
 export default initialData;
