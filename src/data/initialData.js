@@ -7,7 +7,6 @@ const initialData = {
       name: 'Playland',
       time: 5,
       type: 'Play',
-      image: './playland.jpg',
       address: '2901 E Hastings St, Vancouver, BC',
       typeColor: {
         soft: colors.Y50,
@@ -18,8 +17,7 @@ const initialData = {
           id: 'Ramen',
           name: 'Ramen',
           time: 2,
-          type: 'Eat',
-          image: './playland.jpg',
+          type: 'Food',
           address: '558 W Broadway, Vancouver, BC',
           typeColor: {
               soft: colors.B50,
@@ -30,15 +28,26 @@ const initialData = {
         id: 'Volleyball',
         name: 'Volleyball',
         time: 3,
-        type: 'Play',
-        image: './playland.jpg',
+        type: 'Shopping',
         url: 'https://google.com',
         address: '1 Athletes Way, Vancouver, BC',
         typeColor: {
-            soft: colors.Y50,
-            hard: colors.Y200
+            soft: colors.P50,
+            hard: colors.P200
         }
     },
+    'StanleyPark': {
+      id: 'StanleyPark',
+      name: 'Stanley Park',
+      time: 3,
+      type: 'Outdoor',
+      url: 'https://google.com',
+      address: '1 Athletes Way, Vancouver, BC',
+      typeColor: {
+          soft: colors.G50,
+          hard: colors.G200
+      }
+  },
   },
   components: {
     'Activities': {
@@ -51,7 +60,7 @@ const initialData = {
       id: 'Planner',
       title: 'Planner',
       type: 'board',
-      activityIds: ['Ramen']
+      activityIds: ['Ramen', 'StanleyPark']
     },
   },
   layout: ['Activities', 'Planner'],

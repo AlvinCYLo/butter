@@ -2,6 +2,13 @@ import React from 'react';
 import styled from '@emotion/styled';
 import { Draggable } from 'react-beautiful-dnd';
 import { colors } from '@atlaskit/theme';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { 
+  faDrumstickBite,
+  faGamepad,
+  faRoute,
+  faGifts,
+ } from '@fortawesome/free-solid-svg-icons'
 
 import {grid, borderRadius} from "../../constants";
 
@@ -61,20 +68,19 @@ const Type = styled.small`
   padding: ${grid / 2}px;
 `;
 
-const Icon = styled.img`
+const IconContainer = styled.div`
   width: 40px;
   height: 40px;
   border-radius: 50%;
   margin-right: ${grid}px;
   flex-shrink: 0;
   flex-grow: 0;
+  font-size: 30px;
 `;
 
 const Content = styled.div`
   flex-grow: 1;
-
   flex-basis: 100%;
-
   display: flex;
   flex-direction: column;
 `;
@@ -87,6 +93,27 @@ const Address = styled.small`
   text-overflow: ellipsis;
   text-align: right;
 `;
+
+const Icon = (activityType) => {
+  switch(activityType){
+    case "Play":
+      return (
+        <FontAwesomeIcon icon={faGamepad}/>
+      )
+    case "Food":
+      return(
+        <FontAwesomeIcon icon={faDrumstickBite}/>
+      )
+    case "Outdoor": 
+      return (
+        <FontAwesomeIcon icon={faRoute}/>
+      )
+      case "Shopping":
+        return (
+          <FontAwesomeIcon icon={faGifts}/>
+        )
+  }
+};
 
 const getBackgroundColor = (isDragging, isGroupedOver, typeColor) => {
     if (isDragging) {
@@ -117,7 +144,9 @@ export default class Activity extends React.Component {
                         isDragging={snapshot.isDragging}
                         colors={this.props.activity.typeColor}
                     >
-                        <Icon src={this.props.activity.image}/>
+                        <IconContainer>
+                          {Icon(this.props.activity.type)}
+                        </IconContainer>
                         <Content>
                             <BlockQuote>
                                 {this.props.activity.name}
