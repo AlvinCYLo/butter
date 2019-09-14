@@ -11,30 +11,30 @@ const initialData = {
       typeColor: {
         soft: colors.Y50,
         hard: colors.Y200
-        }
+      }
     },
-      'Ramen': {
-          id: 'Ramen',
-          name: 'Ramen',
-          time: 2,
-          type: 'Food',
-          address: '558 W Broadway, Vancouver, BC',
-          typeColor: {
-              soft: colors.B50,
-              hard: colors.B200
-          }
-      },
-      'Volleyball': {
-        id: 'Volleyball',
-        name: 'Volleyball',
-        time: 3,
-        type: 'Shopping',
-        url: 'https://google.com',
-        address: '1 Athletes Way, Vancouver, BC',
-        typeColor: {
-            soft: colors.P50,
-            hard: colors.P200
-        }
+    'Ramen': {
+      id: 'Ramen',
+      name: 'Ramen',
+      time: 2,
+      type: 'Food',
+      address: '558 W Broadway, Vancouver, BC',
+      typeColor: {
+        soft: colors.B50,
+        hard: colors.B200
+      }
+    },
+    'Volleyball': {
+      id: 'Volleyball',
+      name: 'Volleyball',
+      time: 3,
+      type: 'Shopping',
+      url: 'https://google.com',
+      address: '1 Athletes Way, Vancouver, BC',
+      typeColor: {
+        soft: colors.P50,
+        hard: colors.P200
+      }
     },
     'StanleyPark': {
       id: 'StanleyPark',
@@ -44,10 +44,10 @@ const initialData = {
       url: 'https://google.com',
       address: '1 Athletes Way, Vancouver, BC',
       typeColor: {
-          soft: colors.G50,
-          hard: colors.G200
+        soft: colors.G50,
+        hard: colors.G200
       }
-  },
+    },
   },
   components: {
     'Activities': {

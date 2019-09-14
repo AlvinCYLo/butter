@@ -3,14 +3,14 @@ import styled from '@emotion/styled';
 import { Draggable } from 'react-beautiful-dnd';
 import { colors } from '@atlaskit/theme';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { 
+import {
   faDrumstickBite,
   faGamepad,
   faRoute,
   faGifts,
- } from '@fortawesome/free-solid-svg-icons'
+} from '@fortawesome/free-solid-svg-icons'
 
-import {grid, borderRadius} from "../../constants";
+import { grid, borderRadius } from "../../constants";
 
 const Container = styled.a`
   border-radius: ${borderRadius}px;
@@ -95,72 +95,72 @@ const Address = styled.small`
 `;
 
 const Icon = (activityType) => {
-  switch(activityType){
+  switch (activityType) {
     case "Play":
       return (
-        <FontAwesomeIcon icon={faGamepad}/>
+        <FontAwesomeIcon icon={faGamepad} />
       )
     case "Food":
-      return(
-        <FontAwesomeIcon icon={faDrumstickBite}/>
-      )
-    case "Outdoor": 
       return (
-        <FontAwesomeIcon icon={faRoute}/>
+        <FontAwesomeIcon icon={faDrumstickBite} />
       )
-      case "Shopping":
-        return (
-          <FontAwesomeIcon icon={faGifts}/>
-        )
+    case "Outdoor":
+      return (
+        <FontAwesomeIcon icon={faRoute} />
+      )
+    case "Shopping":
+      return (
+        <FontAwesomeIcon icon={faGifts} />
+      )
   }
 };
 
 const getBackgroundColor = (isDragging, isGroupedOver, typeColor) => {
-    if (isDragging) {
-        return typeColor.soft;
-    }
+  if (isDragging) {
+    return typeColor.soft;
+  }
 
-    if (isGroupedOver) {
-        return colors.N30;
-    }
+  if (isGroupedOver) {
+    return colors.N30;
+  }
 
-    return colors.N0;
+  return colors.N0;
 };
 
 const getBorderColor = (isDragging, typeColor) =>
-    isDragging ? typeColor.hard : 'transparent';
+  isDragging ? typeColor.hard : 'transparent';
 
 export default class Activity extends React.Component {
 
-    render() {
-        return (
-            <Draggable draggableId={this.props.activity.id} index={this.props.index}>
-                {(provided, snapshot) => (
-                    <Container
-                        href={this.props.activity.url}
-                        ref={provided.innerRef}
-                        {...provided.draggableProps}
-                        {...provided.dragHandleProps}
-                        isDragging={snapshot.isDragging}
-                        colors={this.props.activity.typeColor}
-                    >
-                        <IconContainer>
-                          {Icon(this.props.activity.type)}
-                        </IconContainer>
-                        <Content>
-                            <BlockQuote>
-                                {this.props.activity.name}
-                            </BlockQuote>
-                            <Footer>
-                                <Type color={this.props.activity.typeColor}>
-                                    {this.props.activity.type}
-                                </Type>
-                                <Address>{this.props.activity.address}</Address>
-                            </Footer>
-                        </Content>
-                    </Container>
-                )}
-            </Draggable>
-        );
-    }
+  render() {
+    return (
+      <Draggable draggableId={this.props.activity.id} index={this.props.index}>
+        {(provided, snapshot) => (
+          <Container
+            href={this.props.activity.url}
+            ref={provided.innerRef}
+            {...provided.draggableProps}
+            {...provided.dragHandleProps}
+            isDragging={snapshot.isDragging}
+            colors={this.props.activity.typeColor}
+          >
+            <IconContainer>
+              {Icon(this.props.activity.type)}
+            </IconContainer>
+            <Content>
+              <BlockQuote>
+                {this.props.activity.name}
+              </BlockQuote>
+              <Footer>
+                <Type color={this.props.activity.typeColor}>
+                  {this.props.activity.type}
+                </Type>
+                <Address>{this.props.activity.address}</Address>
+              </Footer>
+            </Content>
+          </Container>
+        )}
+      </Draggable>
+    );
+  }
 }

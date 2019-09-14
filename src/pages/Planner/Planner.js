@@ -107,23 +107,23 @@ class Schedule extends React.Component {
                                 const component = this.state.components[componentId];
                                 const activities = component.activityIds.map(activityId => this.state.availableActivities[activityId]);
 
-                                if(component.type === 'board'){
+                                if (component.type === 'board') {
                                     return (
                                         <Agenda
-                                            key={component.id} 
-                                            component={component} 
-                                            activities={activities} 
+                                            key={component.id}
+                                            component={component}
+                                            activities={activities}
                                             index={index} />
                                     )
                                 }
 
                                 return (
-                                <List 
-                                    key={component.id} 
-                                    component={component} 
-                                    activities={activities} 
-                                    index={index} />
-                                ) 
+                                    <List
+                                        key={component.id}
+                                        component={component}
+                                        activities={activities}
+                                        index={index} />
+                                )
                             })}
                             {provided.placeholder}
                         </Container>
