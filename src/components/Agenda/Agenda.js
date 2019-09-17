@@ -1,29 +1,13 @@
 import React from 'react';
-
-import styled from 'styled-components';
-import { colors } from '@atlaskit/theme';
 import { Droppable, Draggable } from 'react-beautiful-dnd';
 
 import Activity from '../Activity/Activity';
 
-const Container = styled.div`
-margin: 8px;
-border: 1px solid lightgrey;
-border-radius: 2px;
-background-color: lightgrey;
-width: 400px;
-height: 300px;
-display: flex;
-flex-direction: column;`;
-
-const Title = styled.h3`
-padding: 8px;`;
-
-const List = styled.div`
-padding: 8px;
-transition: background-color 0.2s ease;
-background-color: ${props => (props.isDraggingOver ? `${colors.B50}` : 'inherit')};
-flex-grow: 1;`;
+import {
+    Container,
+    Title,
+    List
+ } from './styles';
 
 export default class Agenda extends React.Component {
     render() {

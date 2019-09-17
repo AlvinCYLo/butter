@@ -1,27 +1,12 @@
 import React from 'react';
-
-import styled from 'styled-components';
 import { Droppable, Draggable } from 'react-beautiful-dnd';
 
 import Activity from '../Activity/Activity';
-
-const Container = styled.div`
-margin: 8px;
-border: 1px solid lightgrey;
-border-radius: 2px;
-background-color: white;
-width: 300px;
-display: flex;
-flex-direction: column;`;
-
-const Title = styled.h3`
-padding: 8px;`;
-
-const TaskList = styled.div`
-padding: 8px;
-transition: background-color 0.2s ease;
-background-color: ${props => (props.isDraggingOver ? 'lightgrey' : 'inherit')};
-flex-grow: 1;`;
+import {
+    Container,
+    Title,
+    TaskList,
+} from './styles';
 
 export default class List extends React.Component {
     render() {

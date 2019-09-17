@@ -6,7 +6,7 @@ const initialData = {
       id: 'Playland',
       name: 'Playland',
       time: 5,
-      type: 'Play',
+      type: 'Attraction',
       address: '2901 E Hastings St, Vancouver, BC',
       typeColor: {
         soft: colors.Y50,
@@ -40,6 +40,18 @@ const initialData = {
       id: 'StanleyPark',
       name: 'Stanley Park',
       time: 3,
+      type: 'Park',
+      url: 'https://google.com',
+      address: '1 Athletes Way, Vancouver, BC',
+      typeColor: {
+        soft: colors.T50,
+        hard: colors.T200
+      }
+    },
+    'KitsBeach': {
+      id: 'KitsBeach',
+      name: 'Kitsilano Beach',
+      time: 5,
       type: 'Outdoor',
       url: 'https://google.com',
       address: '1 Athletes Way, Vancouver, BC',
@@ -54,7 +66,7 @@ const initialData = {
       id: 'Activities',
       title: 'Activities',
       type: 'list',
-      activityIds: ['Playland', 'Volleyball']
+      activityIds: ['Playland', 'Volleyball', 'KitsBeach']
     },
     'Planner': {
       id: 'Planner',
