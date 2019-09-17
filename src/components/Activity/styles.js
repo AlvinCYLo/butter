@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import { colors } from '@atlaskit/theme';
 
-import { grid, borderRadius } from "../../constants";
+import { grid, borderRadius, timeGrid } from "../../constants";
 
 export const Container = styled.a`
   border-radius: ${borderRadius}px;
@@ -12,9 +12,9 @@ export const Container = styled.a`
   box-shadow: ${({ isDragging }) =>
     isDragging ? `2px 2px 1px ${colors.N70}` : 'none'};
   padding: ${grid}px;
-  min-height: 40px;
   margin-bottom: ${grid}px;
   user-select: none;
+  height: ${props => `${(timeGrid * props.time).toString()}px`};
 
   color: ${colors.N900};
 
@@ -30,18 +30,11 @@ export const Container = styled.a`
     box-shadow: none;
   }
 
-  /* flexbox */
   display: flex;
 `;
 
-export const BlockQuote = styled.div`
-  &::before {
-    content: open-quote;
-  }
-
-  &::after {
-    content: close-quote;
-  }
+export const ActivityName = styled.div`
+  font-weight: bold;
 `;
 
 export const Footer = styled.div`
@@ -94,7 +87,7 @@ const getBackgroundColor = (isDragging, isGroupedOver, typeColor) => {
     return colors.N30;
   }
 
-  return colors.N0;
+  return colors.N30;
 };
 
 const getBorderColor = (isDragging, typeColor) =>

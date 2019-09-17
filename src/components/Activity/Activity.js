@@ -4,7 +4,7 @@ import { Draggable } from 'react-beautiful-dnd';
 import { Icon } from './ActivityFunctions';
 import { 
   Container,
-  BlockQuote,
+  ActivityName,
   Footer,
   Type,
   IconContainer,
@@ -25,14 +25,15 @@ export default class Activity extends React.Component {
             {...provided.dragHandleProps}
             isDragging={snapshot.isDragging}
             colors={this.props.activity.typeColor}
+            time={this.props.activity.time}
           >
             <IconContainer>
               {Icon(this.props.activity.type)}
             </IconContainer>
             <Content>
-              <BlockQuote>
+              <ActivityName>
                 {this.props.activity.name}
-              </BlockQuote>
+              </ActivityName>
               <Footer>
                 <Type color={this.props.activity.typeColor}>
                   {this.props.activity.type}

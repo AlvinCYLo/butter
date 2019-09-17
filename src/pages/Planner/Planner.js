@@ -11,7 +11,7 @@ const Container = styled.div`
 display: flex;
 `;
 
-class Schedule extends React.Component {
+class Planner extends React.Component {
 
     state = initialData;
 
@@ -134,4 +134,4 @@ class Schedule extends React.Component {
     }
 }
 
-export default Schedule;
+export default Planner;

@@ -24,9 +24,9 @@ const initialData = {
         hard: colors.B200
       }
     },
-    'Volleyball': {
-      id: 'Volleyball',
-      name: 'Volleyball',
+    'Metrotown': {
+      id: 'Metrotown',
+      name: 'Metrotown at the Metropolis',
       time: 3,
       type: 'Shopping',
       url: 'https://google.com',
@@ -66,16 +66,16 @@ const initialData = {
       id: 'Activities',
       title: 'Activities',
       type: 'list',
-      activityIds: ['Playland', 'Volleyball', 'KitsBeach']
+      activityIds: ['Playland', 'Metrotown', 'KitsBeach']
     },
-    'Planner': {
-      id: 'Planner',
-      title: 'Planner',
+    'Agenda': {
+      id: 'Agenda',
+      title: 'Agenda',
       type: 'board',
       activityIds: ['Ramen', 'StanleyPark']
     },
   },
-  layout: ['Activities', 'Planner'],
+  layout: ['Activities', 'Agenda'],
 };
 
 export default initialData;

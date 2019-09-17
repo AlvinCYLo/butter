@@ -2,7 +2,6 @@ import React from 'react';
 import { Droppable, Draggable } from 'react-beautiful-dnd';
 
 import Activity from '../Activity/Activity';
-
 import {
     Container,
     Title,
@@ -23,7 +22,6 @@ export default class Agenda extends React.Component {
                         <Droppable droppableId={this.props.component.id} type="activity">
                             {(provided, snapshot) => (
                                 <List
-                                    style={this.props.style}
                                     ref={provided.innerRef}
                                     {...provided.droppableProps}
                                     isDraggingOver={snapshot.isDraggingOver}
