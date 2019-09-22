@@ -26,7 +26,7 @@ const initialData = {
     },
     'Metrotown': {
       id: 'Metrotown',
-      name: 'Metrotown at the Metropolis',
+      name: 'Metropolis at the Metrotown',
       time: 3,
       type: 'Shopping',
       url: 'https://google.com',
