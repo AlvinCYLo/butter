@@ -8,6 +8,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
   - Sizing of activities based on user reviews and popularity
   - Suggest nearby high rating activites based on your geolocation
   - ETA service to estimate out travel time and the route to take
+  
+  - Map UI to pick certain activities in nearby area to do. New page of app calendar/schedule view, given a day and time to start, optimize routes (graph algo)
 
 ## Available Scripts
 
