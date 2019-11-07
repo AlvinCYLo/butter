@@ -1,12 +1,13 @@
 import React from 'react';
-import Planner from './pages/Planner/Planner';
+import Map from './pages/Map';
 
-class App extends React.Component {
-  render(){
-    return (
-      <Planner />
-    );
-  }
-}
+import getActivities from './api/getActivities';
+
+const App = () => {
+  let data;
+  return (
+    <Map />
+  );
+};
 
 export default App;
