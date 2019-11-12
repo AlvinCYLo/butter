@@ -1,19 +1,26 @@
 import React from 'react';
+import ReactMapGL from 'react-map-gl';
 
-import { ReactBingmaps } from 'react-bingmaps';
+class Map extends React.Component {
 
-const Map = () => {
+  state = {
+    viewport: {
+      width: 400,
+      height: 400,
+      latitude: 37.7577,
+      longitude: -122.4376,
+      zoom: 8
+    }
+  };
+
+  render() {
     return (
-        <>
-            <ReactBingmaps
-                bingmapKey={"AvcNf0oiWdC4FZyyZkrrJU8ILKl4kkKdLJlDA6W0ZM0BNM1b0xpWk-otCvDifzDo"}
-                center={[49.246292, -123.116226]}
-                mapTypeId={"road"}
-                navigationBarMode={"compact"}
-            />
-        </>
-
+      <ReactMapGL
+        {...this.state.viewport}
+        onViewportChange={(viewport) => this.setState({viewport})}
+      />
     );
-};
+  }
+}
 
 export default Map;
