@@ -21,7 +21,7 @@ class Map extends React.Component {
       start: "",
       end: ""
     },
-    activities: []
+    activities: [...this.props.activities]
   };
 
   updateViewport = (viewport) => {
@@ -61,7 +61,7 @@ class Map extends React.Component {
         mapStyle={"mapbox://styles/mapbox/dark-v9"}
         onViewportChange={this.updateViewport}
       >
-        
+
       </MapGL>
     );
   }
