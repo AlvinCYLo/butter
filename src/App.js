@@ -1,5 +1,5 @@
 import React from 'react';
-import Map from './pages/Map';
+import Map from './components/Map';
 
 import getActivities from './api/getActivities';
 

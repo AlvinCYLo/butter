@@ -1,12 +1,11 @@
 import React from 'react';
-import ReactMapGL from 'react-map-gl';
+import MapGL from 'react-map-gl';
+import 'mapbox-gl/dist/mapbox-gl.css';
 
 class Map extends React.Component {
 
   state = {
     viewport: {
-      width: 400,
-      height: 400,
       latitude: 37.7577,
       longitude: -122.4376,
       zoom: 8
@@ -15,9 +14,12 @@ class Map extends React.Component {
 
   render() {
     return (
-      <ReactMapGL
+      <MapGL
         {...this.state.viewport}
-        onViewportChange={(viewport) => this.setState({viewport})}
+        width={"100%"}
+        height={920}
+        mapStyle={"mapbox://styles/mapbox/dark-v9"}
+        onViewportChange={(viewport) => this.setState({ viewport })}
       />
     );
   }
