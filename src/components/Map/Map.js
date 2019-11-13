@@ -1,16 +1,56 @@
 import React from 'react';
-import MapGL from 'react-map-gl';
+import MapGL, { Marker, Popup } from 'react-map-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 
 class Map extends React.Component {
 
   state = {
     viewport: {
-      latitude: 37.7577,
-      longitude: -122.4376,
-      zoom: 8
-    }
+      latitude: 49.2827,
+      longitude: -123.1207,
+      zoom: 13
+    },
+    type: {
+      events: true,
+      pois: true,
+    },
+    filters: {
+      latitude: "",
+      longitude: "",
+      category: "",
+      start: "",
+      end: ""
+    },
+    activities: []
   };
+
+  updateViewport = (viewport) => {
+    this.setState({ viewport });
+  };
+
+  renderActivityMarker = (activity) => {
+    return (
+      <Marker latitude={activity.latitude}
+        longitude={activity.longitude}
+      >
+
+      </Marker>
+    );
+  };
+
+  renderPopup = (activity) => {
+    return (
+      <Popup
+        tipSize={5}
+        anchor="top"
+        longitude={activity.longitude}
+        latitude={activity.latitude}
+        closeOnClick={false}
+      >
+
+      </Popup>
+    )
+  }
 
   render() {
     return (
@@ -19,8 +59,10 @@ class Map extends React.Component {
         width={"100%"}
         height={920}
         mapStyle={"mapbox://styles/mapbox/dark-v9"}
-        onViewportChange={(viewport) => this.setState({ viewport })}
-      />
+        onViewportChange={this.updateViewport}
+      >
+        
+      </MapGL>
     );
   }
 }
