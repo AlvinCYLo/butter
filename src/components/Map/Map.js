@@ -3,9 +3,9 @@ import MapGL, { Marker, Popup } from 'react-map-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 
 import Pin from '../Pin';
-import Info from '../Info';
-
 import RESPONSE from '../../api/response.json';
+
+import styles from './map-styles.css';
 
 class Map extends React.Component {
 
@@ -27,43 +27,35 @@ class Map extends React.Component {
       end: ""
     },
     activities: [...RESPONSE],
-    currentActivity: {}
+    currentActivity: null
   };
 
   updateViewport = (viewport) => {
     this.setState({ viewport });
   };
 
-  renderActivityMarker = (activity, index) => {
+  renderActivityMarker = (activity) => {
     return (
-      <Marker key={`marker-${index}`}
+      <Marker key={`marker-${activity.name}`}
         latitude={parseFloat(activity.latitude)}
         longitude={parseFloat(activity.longitude)}
       >
-        <Pin size={20} onClick={() => this.setState({ currentActivity: activity })} />
+        <Pin className="activity" size={20} onClick={() => this.setState({ currentActivity: activity })} />
       </Marker>
     );
   };
 
-  // renderPopup() {
-  //   const { currentActivity } = this.state;
-
-  //   return (
-  //     currentActivity && (
-  //       < Popup
-  //         tipSize={5}
-  //         anchor="top"
-  //         longitude={parseInt(currentActivity.longitude)}
-  //         latitude={parseInt(currentActivity.latitude)}
-  //         closeOnClick={false}
-  //         onClose={() => this.setState({ currentActivity: {} })}
-  //       >
-  //         <Info info={currentActivity} />
-  //       </Popup >
-  //     )
-
-  //   )
-  // }
+  renderPopup() {
+    const { currentActivity } = this.state;
+    if (currentActivity) {
+      return (
+        <Popup latitude={parseFloat(currentActivity.latitude)} longitude={parseFloat(currentActivity.longitude)} closeButton={false}>
+          {currentActivity.name}
+        </Popup>
+      );
+    }
+    return null;
+  }
 
   render() {
     return (
@@ -75,8 +67,7 @@ class Map extends React.Component {
         onViewportChange={this.updateViewport}
       >
         {RESPONSE.map(this.renderActivityMarker)}
-
-        {/* {this.renderPopup()} */}
+        {this.renderPopup()}
       </MapGL>
     );
   }

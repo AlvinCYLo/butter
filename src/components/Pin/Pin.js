@@ -12,7 +12,7 @@ const pinStyle = {
 
 class Pin extends React.Component {
   render() {
-    const {size = 20, onClick} = this.props;
+    const { size = 20, onClick } = this.props;
 
     return (
       <svg
