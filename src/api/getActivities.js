@@ -1,6 +1,6 @@
 import fetch from 'isomorphic-fetch';
 
-export const getActivities = async (lat, lon, category, start, end) => {
+export const discoverActivities = async (lat, lon, category, start, end) => {
     try {
         let response = await fetch(`https://localhost:8080/?lat=${lat}&lon=${lon}&category=${category}&start=${start}&end=${end}`, {
             method: 'get'

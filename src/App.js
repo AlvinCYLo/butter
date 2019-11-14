@@ -1,26 +1,21 @@
 import React from 'react';
 import Map from './components/Map';
 
-import getActivities from './api/getActivities';
+import { discoverActivities } from './api/getActivities';
 
 class App extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props);
 
     this.state = {
-      activities: {},
-      lat: "",
-      lon: "",
-      category: "",
-      start: "",
-      end: ""
-    };
+      getActivities: () => { discoverActivities() }
+    }
 
   };
 
-  render(){
+  render() {
     return (
-      <Map/>
+      <Map />
     );
   };
 
