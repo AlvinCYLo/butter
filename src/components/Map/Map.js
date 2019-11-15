@@ -4,8 +4,8 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 
 import Pin from '../Pin';
 import RESPONSE from '../../api/response.json';
-
-import styles from './map-styles.css';
+import mapStyles from './Map.css';
+import styles from './marker-style.css';
 
 class Map extends React.Component {
 
@@ -40,7 +40,9 @@ class Map extends React.Component {
         latitude={parseFloat(activity.latitude)}
         longitude={parseFloat(activity.longitude)}
       >
-        <Pin className="activity" size={20} onClick={() => this.setState({ currentActivity: activity })} />
+        <div className="activity">
+          <Pin activity={activity} onClick={() => { this.setState({ currentActivity: activity }) }} />
+        </div>
       </Marker>
     );
   };
@@ -49,7 +51,12 @@ class Map extends React.Component {
     const { currentActivity } = this.state;
     if (currentActivity) {
       return (
-        <Popup latitude={parseFloat(currentActivity.latitude)} longitude={parseFloat(currentActivity.longitude)} closeButton={false}>
+        <Popup latitude={parseFloat(currentActivity.latitude)}
+          longitude={parseFloat(currentActivity.longitude)}
+          closeButton={true}
+          closeOnClick={true}
+          onClose={() => this.setState({ currentActivity: null })}
+        >
           {currentActivity.name}
         </Popup>
       );
@@ -65,6 +72,7 @@ class Map extends React.Component {
         height={920}
         mapStyle={"mapbox://styles/mapbox/dark-v9"}
         onViewportChange={this.updateViewport}
+        onClick={() => this.setState({ currentActivity: null })}
       >
         {RESPONSE.map(this.renderActivityMarker)}
         {this.renderPopup()}
