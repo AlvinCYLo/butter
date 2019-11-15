@@ -3,6 +3,7 @@ import MapGL, { Marker, Popup } from 'react-map-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 
 import Pin from '../Pin';
+import ControlPanel from '../ControlPanel';
 import RESPONSE from '../../api/response.json';
 import mapStyles from './Map.css';
 import styles from './marker-style.css';
@@ -69,13 +70,16 @@ class Map extends React.Component {
       <MapGL
         {...this.state.viewport}
         width={"100%"}
-        height={920}
+        height={930}
         mapStyle={"mapbox://styles/mapbox/dark-v9"}
         onViewportChange={this.updateViewport}
         onClick={() => this.setState({ currentActivity: null })}
       >
         {RESPONSE.map(this.renderActivityMarker)}
         {this.renderPopup()}
+        {this.state.currentActivity &&
+          <ControlPanel activity={this.state.currentActivity} />
+        }
       </MapGL>
     );
   }
