@@ -10,13 +10,15 @@ class ControlPanel extends React.Component {
     }
 
     renderCheckbox(name, value) {
+        let val = (value) ? value : false;
+
         return (
             <div key={name} className="input">
                 <label>{this.formatSettingName(name)}</label>
                 <input
                     type="checkbox"
-                    checked={value}
-                    onChange={evt => this.props.onChange(name, evt.target.checked)}
+                    checked={val}
+                    onChange={evt => this.props.onChange(evt.target.checked)}
                 />
             </div>
         );
@@ -68,18 +70,16 @@ class ControlPanel extends React.Component {
             }
         }
 
-        if (name && value) {
-            return (
-                <div>
-                    <label>{this.formatSettingName(name)}: </label>
-                    <span>{details}</span>
-                </div>
-            );
-        }
+        return (
+            <div>
+                <label>{this.formatSettingName(name)}: </label>
+                <span>{details}</span>
+            </div>
+        );
     }
 
     render() {
-        const { activity } = this.props;
+        const { activity, savedActivities } = this.props;
 
         return (
             <Container>
@@ -88,6 +88,12 @@ class ControlPanel extends React.Component {
                 <div className="details">
                     {Object.keys(activity).map((detail) => (this.renderDetails(detail, activity[detail])))}
                 </div>
+                {!savedActivities.has(activity.name) &&
+                    <>
+                        <hr />
+                        {this.renderCheckbox('save', activity.saved)}
+                    </>
+                }
             </Container>
         );
     }

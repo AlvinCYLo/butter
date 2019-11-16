@@ -1,14 +1,22 @@
 import React from 'react';
-import MapGL, { Marker, Popup } from 'react-map-gl';
+import MapGL, { Marker, Popup, GeolocateControl } from 'react-map-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 
 import Pin from '../Pin';
 import ControlPanel from '../ControlPanel';
 import RESPONSE from '../../api/response.json';
+
 import mapStyles from './Map.css';
 import styles from './marker-style.css';
 
-class Map extends React.Component {
+const geolocateStyle = {
+  position: 'absolute',
+  top: 0,
+  left: 0,
+  margin: 10
+};
+
+class Maps extends React.Component {
 
   state = {
     viewport: {
@@ -28,7 +36,8 @@ class Map extends React.Component {
       end: ""
     },
     activities: [...RESPONSE],
-    currentActivity: null
+    currentActivity: null,
+    savedActivities: new Map()
   };
 
   updateViewport = (viewport) => {
@@ -65,6 +74,17 @@ class Map extends React.Component {
     return null;
   }
 
+  saveChanged = (value) => {
+    this.setState({
+      currentActivity: {...this.state.currentActivity, saved: value}
+    });
+    if (value && !this.state.savedActivities.has(this.state.currentActivity.name)) {
+      this.setState({
+        savedActivities: this.state.savedActivities.set(this.state.currentActivity.name, this.state.currentActivity)
+      });
+    }
+  }
+
   render() {
     return (
       <MapGL
@@ -78,11 +98,19 @@ class Map extends React.Component {
         {RESPONSE.map(this.renderActivityMarker)}
         {this.renderPopup()}
         {this.state.currentActivity &&
-          <ControlPanel activity={this.state.currentActivity} />
+          <ControlPanel activity={this.state.currentActivity}
+            onChange={this.saveChanged}
+            savedActivities={this.state.savedActivities}
+          />
         }
+        <GeolocateControl
+          style={geolocateStyle}
+          positionOptions={{ enableHighAccuracy: true }}
+          trackUserLocation={true}
+        />
       </MapGL>
     );
   }
 }
 
-export default Map;
+export default Maps;

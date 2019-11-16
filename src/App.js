@@ -1,5 +1,5 @@
 import React from 'react';
-import Map from './components/Map';
+import Maps from './components/Map';
 
 import { discoverActivities } from './api/getActivities';
 
@@ -15,7 +15,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <Map />
+      <Maps />
     );
   };
 
