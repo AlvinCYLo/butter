@@ -1,3 +1,8 @@
+- adds interested activities from map (add query functionality and api integration)
+- add menu/popup to enter queries and navigate to activity tinder page
+- simple activity tinder page to save activities for scheduling
+- scheduling page allowing for exports and algorithm to see which route is best (shortest distance between all selected activities)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
