@@ -4,10 +4,12 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 
 import Pin from '../Pin';
 import ControlPanel from '../ControlPanel';
+import QueryForm from '../QueryForm';
+
 import RESPONSE from '../../api/response.json';
 
-import mapStyles from './Map.css';
-import styles from './marker-style.css';
+import './Map.css';
+import './marker-style.css';
 
 const geolocateStyle = {
   position: 'absolute',
@@ -76,7 +78,7 @@ class Maps extends React.Component {
 
   saveChanged = (value) => {
     this.setState({
-      currentActivity: {...this.state.currentActivity, saved: value}
+      currentActivity: { ...this.state.currentActivity, saved: value }
     });
     if (value && !this.state.savedActivities.has(this.state.currentActivity.name)) {
       this.setState({
@@ -103,6 +105,7 @@ class Maps extends React.Component {
             savedActivities={this.state.savedActivities}
           />
         }
+        <QueryForm autoFocus autoFocusEndDate />
         <GeolocateControl
           style={geolocateStyle}
           positionOptions={{ enableHighAccuracy: true }}

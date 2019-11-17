@@ -24,19 +24,6 @@ class ControlPanel extends React.Component {
         );
     }
 
-    renderTextInput(name, value) {
-        return (
-            <div key={name} className="input">
-                <label>{this.formatSettingName(name)}</label>
-                <input
-                    type="text"
-                    value={value}
-                    onChange={evt => this.props.onChange(name, evt.target.value)}
-                />
-            </div>
-        );
-    }
-
     formatDate(dateString) {
         let date = new Date(dateString);
         return `${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear()}`
@@ -68,14 +55,14 @@ class ControlPanel extends React.Component {
                 default:
                     break;
             }
-        }
 
-        return (
-            <div>
-                <label>{this.formatSettingName(name)}: </label>
-                <span>{details}</span>
-            </div>
-        );
+            return (
+                <div>
+                    <label>{this.formatSettingName(name)}: </label>
+                    <span>{details}</span>
+                </div>
+            );
+        }
     }
 
     render() {
